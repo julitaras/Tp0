@@ -1,6 +1,8 @@
 #include "tp0.h"
 #include "testing.h"
 #include <stddef.h>
+#include "tp0.c"
+#include "testing.c"
 
 /* ******************************************************************
  *                        PRUEBAS UNITARIAS
