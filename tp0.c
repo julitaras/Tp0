@@ -33,73 +33,55 @@ int maximo(int vector[], int n) {
     return pos;
 }
 
-int comparar(int vector1[], int n1, int vector2[], int n2) {
-    int result;
-    if(vector1 == NULL && vector2 == NULL) {
-        result = 0;
-    }else{
-        if(vector1 != NULL && vector2 != NULL) {
-            int i = 0;
-
-            int var;    
-            if (n1<n2) { var=n1;}
-            if (n1>n2) {var=n2;}
-            if (n1==n2) {var=n1;}
-            printf("%i",var);
-            for(i = 0 ; i < var; i++)
+int comparar(int vector1[], int n1, int vector2[], int n2) 
+{
+    int i, var, result = 0, auxI = 0;
+    if(n1 > n2)
+    {
+        var = n2;
+    }
+    if(n1 < n2)
+    {
+        var = n1;
+    }
+    if(n1 == n2)
+    {
+        var = n1;
+    }
+    for(i = 0; i < var; i ++)
+    {
+        auxI = i;
+        if(result != -1 || result != 1)
+        {
+            if(vector1[i]< vector2[i])
             {
-                if(vector1[i] == vector2[i]) {
-                    result = 0;
-                } else {
-                    if(vector1[i] < vector2[i]) {
-                        result = -1;
-                    } else {
-                        result = 1;
-                    }
-                }
-            }
-            if(n2 > i) // vec3[1]=8     i=1    unico=overflow
-            {
-                result=-1;
+                result = -1;
             }
             else
             {
-                result=1;
-            }
-            
-            
-
-           
-
-            
-            /* while (i < n1 && i < n2 ) {
-                if(vector1[i] == vector2[i]) {
-                    result = 0;
-                } else {
-                    if(vector1[i] < vector2[i]) {
-                        result = -1;
-                    } else {
-                        result = 1;
-                    }
+                if(vector1[i] > vector2[i])
+                {
+                    result = 1;
                 }
-                i++;
-            } */
-
-           /* if(n1 <= i) {
-                if(n2 > i) {
-                    result = -1;
-                } else {
+                else
+                {
                     result = 0;
                 }
             }
-
-             */
-        }
-        else{
+        }        
+    }
+    if( (n1 != n2) && result == 0 )
+    {
+        if( ( n1 > auxI + 1 && auxI + 1 <= n2) || (n2 > auxI && auxI <= n1) )
+        {
             result = -1;
         }
+        else
+        {   
+            result = 1;   
+        }
     }
-    printf("\t\t%i\n", result);
+   // printf("Reusltado que obtenemos: %i\n", result);
     return result;
 }
 
