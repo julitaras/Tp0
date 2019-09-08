@@ -51,7 +51,7 @@ int comparar(int vector1[], int n1, int vector2[], int n2)
     for(i = 0; i < var; i ++)
     {
         auxI = i;
-        if(result != -1 || result != 1)
+        if(result == 0)
         {
             if(vector1[i]< vector2[i])
             {
@@ -68,11 +68,11 @@ int comparar(int vector1[], int n1, int vector2[], int n2)
                     result = 0;
                 }
             }
-        }        
+        }     
     }
     if( (n1 != n2) && result == 0 )
     {
-        if( ( n1 > auxI + 1 && auxI + 1 <= n2) || (n2 > auxI && auxI <= n1) )
+        if( (n1 < n2 &&  n1 > auxI && auxI <= n2) || (  n2 > n1 &&  n2 > auxI && auxI <= n1) )
         {
             result = -1;
         }
@@ -81,7 +81,6 @@ int comparar(int vector1[], int n1, int vector2[], int n2)
             result = 1;   
         }
     }
-   // printf("Reusltado que obtenemos: %i\n", result);
     return result;
 }
 
