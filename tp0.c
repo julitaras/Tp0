@@ -17,16 +17,13 @@ int maximo(int vector[], int n) {
     int i = 0;
     int pos = 0;
 
-    if(n == 0) {
+    if(n == 0){
         pos = -1;
-    } else {
-        if(n == 1) {
-            pos = 0;
-        } else {
-            for(i = 1; i < n; i++){    
-                if(vector[i] > vector[pos]){
-                    pos = i;
-                }
+    }  
+    else{
+        for(i = 0; i < n; i++){
+            if(vector[i] > vector[pos]){
+                pos = i;
             }
         }
     }
@@ -35,49 +32,26 @@ int maximo(int vector[], int n) {
 
 int comparar(int vector1[], int n1, int vector2[], int n2) 
 {
-    int i, var, result = 0, auxI = 0;
-    if(n1 > n2)
-    {
-        var = n2;
-    }
-    if(n1 < n2)
-    {
-        var = n1;
-    }
-    if(n1 == n2)
-    {
-        var = n1;
-    }
-    for(i = 0; i < var; i ++)
-    {
+    int i, result = 0, auxI = 0;
+    
+    for(i = 0; i < n1 && i < n2; i ++){
         auxI = i;
-        if(result == 0)
-        {
-            if(vector1[i]< vector2[i])
-            {
+        if(result == 0){
+            if(vector1[i]< vector2[i]){
                 result = -1;
-            }
-            else
-            {
-                if(vector1[i] > vector2[i])
-                {
+            }else{
+                if(vector1[i] > vector2[i]){
                     result = 1;
-                }
-                else
-                {
+                }else{
                     result = 0;
                 }
             }
         }     
     }
-    if( (n1 != n2) && result == 0 )
-    {
-        if( (n1 < n2 &&  n1 > auxI && auxI <= n2) || (  n2 > n1 &&  n2 > auxI && auxI <= n1) )
-        {
+    if( (n1 != n2) && (result == 0)){
+        if(((n1 < n2) &&  (n1 > auxI) && (auxI <= n2)) || ((n2 > n1) && (n2 > auxI) && (auxI <= n1))){
             result = -1;
-        }
-        else
-        {   
+        }else{   
             result = 1;   
         }
     }
