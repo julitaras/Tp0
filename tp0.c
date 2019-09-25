@@ -32,28 +32,26 @@ int maximo(int vector[], int n) {
 
 int comparar(int vector1[], int n1, int vector2[], int n2) 
 {
-    int i, result = 0, auxI = 0;
+    int i, result = 0;
     
     for(i = 0; i < n1 && i < n2; i ++){
-        auxI = i;
         if(result == 0){
             if(vector1[i]< vector2[i]){
-                result = -1;
+                return -1;
             }else{
                 if(vector1[i] > vector2[i]){
-                    result = 1;
+                    return 1;
                 }else{
                     result = 0;
                 }
             }
         }     
     }
-    if( (n1 != n2) && (result == 0)){
-        if(((n1 < n2) &&  (n1 > auxI) && (auxI <= n2)) || ((n2 > n1) && (n2 > auxI) && (auxI <= n1))){
-            result = -1;
-        }else{   
-            result = 1;   
-        }
+    if(n1 < n2){
+        result = -1;
+    }
+    if(n1 > n2){
+        result = 1;
     }
     return result;
 }
