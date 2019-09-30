@@ -14,13 +14,12 @@ void swap (int *x, int *y) {
 
 
 int maximo(int vector[], int n) {
-    int i = 0;
     int pos = 0;
 
     if(n == 0){
         return -1;
     }
-    for(i = 0; i < n; i++){
+    for(int i = 0; i < n; i++){
         if(vector[i] > vector[pos]){
             pos = i;
         }
@@ -29,18 +28,13 @@ int maximo(int vector[], int n) {
 }
 
 int comparar(int vector1[], int n1, int vector2[], int n2) {
-    int i, result = 0;
-    
-    for(i = 0; i < n1 && i < n2; i ++){
+    for(int i = 0; i < n1 && i < n2; i ++){
         if(vector1[i]< vector2[i]){
             return -1;
             }else{
                 if(vector1[i] > vector2[i]){
                     return 1;
                  }
-                 //else{
-                //     result = 0;
-                // }
             }
         }
     if(n1 < n2){
